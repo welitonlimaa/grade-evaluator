@@ -25,20 +25,37 @@ public class Student {
   }
 
   /**
-   * Collect Method.
+   * Valida o peso da atividade.
+   * @param totalWeight O peso total disponível.
+   * @return O peso válido da atividade.
+   */
+  private static int validateWeight(Scanner scanner, int totalWeight) {
+    int weight = Integer.parseInt(scanner.nextLine());
+    if (weight > totalWeight) {
+      weight = totalWeight;
+    }
+    return weight;
+  }
+
+  /**
+   * Método para coletar informações sobre as atividades.
+   * @param quantity O número de atividades.
+   * @return O resultado calculado.
    */
   public static int informationCollect(int quantity) {
     Scanner scanner = new Scanner(System.in);
+    int totalWeight = 100;
     int loop = 0;
     Activity[] data = new Activity[quantity];
     while (loop < quantity) {
       System.out.println("Digite o nome da atividade " + (loop + 1) + ":");
       String name = scanner.nextLine();
       System.out.println("Digite o peso da atividade " + (loop + 1) + ":");
-      int weight = Integer.parseInt(scanner.nextLine());
+      int weight = validateWeight(scanner, totalWeight);
       System.out.println("Digite a nota obtida para " + name + ":");
       int note = Integer.parseInt(scanner.nextLine());
       data[loop] = new Activity(name, weight, note);
+      totalWeight -= weight;
       loop += 1;
     }
 
