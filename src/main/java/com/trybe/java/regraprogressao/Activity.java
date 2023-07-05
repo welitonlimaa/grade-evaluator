@@ -1,6 +1,7 @@
 package com.trybe.java.regraprogressao;
 
 public class Activity {
+
   private String title;
   private int weight;
   private int note;
