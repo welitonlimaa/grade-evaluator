@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Student {
 
+  /**
+   * Student Class.
+   */
   public static void informationCollect(int quantity) {
     Scanner scanner = new Scanner(System.in);
     int loop = 0;
@@ -12,11 +15,9 @@ public class Student {
       System.out.println("Digite o nome da atividade " + (loop + 1) + ":");
       String name = scanner.nextLine();
       System.out.println("Digite o peso da atividade " + (loop + 1) + ":");
-      int weight = scanner.nextInt();
-      scanner.nextLine();
+      int weight = Integer.parseInt(scanner.nextLine());
       System.out.println("Digite a nota obtida para " + name + ":");
-      int note = scanner.nextInt();
-      scanner.nextLine();
+      int note = Integer.parseInt(scanner.nextLine());
       data[loop] = new Activity(name, weight, note);
       loop += 1;
     }
