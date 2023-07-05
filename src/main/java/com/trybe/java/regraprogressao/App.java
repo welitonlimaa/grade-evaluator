@@ -15,6 +15,18 @@ public class App {
     System.out.println("Digite a quantidade de atividades para cadastrar:");
     int quantity = scanner.nextInt();
 
-    Student.informationCollect(quantity);
+    int result = Student.informationCollect(quantity);
+    String message = "";
+    if (result >= 85) {
+      message = "Parabéns! Você alcançou " + result
+          + "%! E temos o prazer de informar que você obteve aprovação!";
+    } else {
+      message =
+          "Lamentamos informar que, com base na sua pontuação alcançada neste período, " + result
+              + "%, você não atingiu a pontuação mínima necessária para sua aprovação.";
+    }
+
+    System.out.println(message);
+
   }
 }

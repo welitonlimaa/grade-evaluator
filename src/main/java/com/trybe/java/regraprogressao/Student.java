@@ -2,12 +2,32 @@ package com.trybe.java.regraprogressao;
 
 import java.util.Scanner;
 
+/**
+ * Student Class.
+ */
 public class Student {
 
   /**
-   * Student Class.
+   * Result Method.
    */
-  public static void informationCollect(int quantity) {
+
+  public static int resultCalculate(Activity[] data) {
+    int dividend = 0;
+    int divider = 100;
+
+    for (int i = 0; i < data.length; i++) {
+      Activity activity = data[i];
+      dividend += (activity.getNote() * activity.getWeight());
+    }
+
+    int result = dividend / divider;
+    return result;
+  }
+
+  /**
+   * Collect Method.
+   */
+  public static int informationCollect(int quantity) {
     Scanner scanner = new Scanner(System.in);
     int loop = 0;
     Activity[] data = new Activity[quantity];
@@ -23,5 +43,8 @@ public class Student {
     }
 
     scanner.close();
+    int result = resultCalculate(data);
+
+    return result;
   }
 }
