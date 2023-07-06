@@ -8,26 +8,28 @@ import java.util.Scanner;
 public class Student {
 
   /**
-   * Result Method.
+   * Calculates the result.
+   *
+   * @param data is a matrix where each row represents a grade and its weight.
+   * @return The result in percentage.
    */
 
-  public static int resultCalculate(Activity[] data) {
+  public static int resultCalculate(int[][] data) {
     int dividend = 0;
     int divider = 100;
 
-    for (int i = 0; i < data.length; i++) {
-      Activity activity = data[i];
-      dividend += (activity.getNote() * activity.getWeight());
+    for (int[] datum : data) {
+      dividend += (datum[0] * datum[1]);
     }
 
-    int result = dividend / divider;
-    return result;
+    return dividend / divider;
   }
 
   /**
-   * Valida o peso da atividade.
-   * @param totalWeight O peso total disponível.
-   * @return O peso válido da atividade.
+   * Validates the weight of the activity.
+   *
+   * @param totalWeight The total available weight.
+   * @return The valid weight of the activity.
    */
   private static int validateWeight(Scanner scanner, int totalWeight) {
     int weight = Integer.parseInt(scanner.nextLine());
@@ -38,15 +40,16 @@ public class Student {
   }
 
   /**
-   * Método para coletar informações sobre as atividades.
-   * @param quantity O número de atividades.
-   * @return O resultado calculado.
+   * Method to gather information about activities.
+   *
+   * @param quantity The number of activities.
+   * @return The calculated result.
    */
   public static int informationCollect(int quantity) {
     Scanner scanner = new Scanner(System.in);
     int totalWeight = 100;
     int loop = 0;
-    Activity[] data = new Activity[quantity];
+    int[][] data = new int[quantity][2];
     while (loop < quantity) {
       System.out.println("Digite o nome da atividade " + (loop + 1) + ":");
       String name = scanner.nextLine();
@@ -54,14 +57,14 @@ public class Student {
       int weight = validateWeight(scanner, totalWeight);
       System.out.println("Digite a nota obtida para " + name + ":");
       int note = Integer.parseInt(scanner.nextLine());
-      data[loop] = new Activity(name, weight, note);
+      data[loop][0] = weight;
+      data[loop][1] = note;
       totalWeight -= weight;
       loop += 1;
     }
 
     scanner.close();
-    int result = resultCalculate(data);
 
-    return result;
+    return resultCalculate(data);
   }
 }
