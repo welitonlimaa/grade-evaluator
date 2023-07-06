@@ -14,8 +14,8 @@ public class Student {
    * @return The result in percentage.
    */
 
-  public static int resultCalculate(int[][] data) {
-    int dividend = 0;
+  public static double resultCalculate(int[][] data) {
+    double dividend = 0;
     int divider = 100;
 
     for (int[] datum : data) {
@@ -26,44 +26,34 @@ public class Student {
   }
 
   /**
-   * Validates the weight of the activity.
-   *
-   * @param totalWeight The total available weight.
-   * @return The valid weight of the activity.
-   */
-  private static int validateWeight(Scanner scanner, int totalWeight) {
-    int weight = Integer.parseInt(scanner.nextLine());
-    if (weight > totalWeight) {
-      weight = totalWeight;
-    }
-    return weight;
-  }
-
-  /**
    * Method to gather information about activities.
    *
    * @param quantity The number of activities.
    * @return The calculated result.
    */
-  public static int informationCollect(int quantity) {
-    Scanner scanner = new Scanner(System.in);
-    int totalWeight = 100;
+  public static double informationCollect(Scanner scanner, int quantity) {
+    int totalWeight = 0;
     int loop = 0;
     int[][] data = new int[quantity][2];
     while (loop < quantity) {
       System.out.println("Digite o nome da atividade " + (loop + 1) + ":");
       String name = scanner.nextLine();
       System.out.println("Digite o peso da atividade " + (loop + 1) + ":");
-      int weight = validateWeight(scanner, totalWeight);
+      String weight = scanner.nextLine();
+      totalWeight += Integer.parseInt(weight);
       System.out.println("Digite a nota obtida para " + name + ":");
-      int note = Integer.parseInt(scanner.nextLine());
-      data[loop][0] = weight;
-      data[loop][1] = note;
-      totalWeight -= weight;
+      String note = scanner.nextLine();
+      data[loop][0] = Integer.parseInt(weight);
+      data[loop][1] = Integer.parseInt(note);
+
+      if (totalWeight > 100) {
+        System.out.println("A soma dos pesos deve ser igual a 100.");
+        System.exit(0);
+        scanner.close();
+      }
+
       loop += 1;
     }
-
-    scanner.close();
 
     return resultCalculate(data);
   }

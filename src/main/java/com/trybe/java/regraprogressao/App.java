@@ -15,9 +15,9 @@ public class App {
     System.out.println("Digite a quantidade de atividades para cadastrar:");
     int quantity = Integer.parseInt(scanner.nextLine());
 
-    int result = Student.informationCollect(quantity);
+    double result = Student.informationCollect(scanner, quantity);
     String message = "";
-    if (result >= 85) {
+    if (result >= 85.0d) {
       message = "Parabéns! Você alcançou " + result
           + "%! E temos o prazer de informar que você obteve aprovação!";
     } else {
@@ -27,6 +27,6 @@ public class App {
     }
 
     System.out.println(message);
-
+    scanner.close();
   }
 }
