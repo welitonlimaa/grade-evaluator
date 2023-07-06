@@ -1,4 +1,4 @@
-package com.trybe.java.regraprogressao;
+package com.gradeevaluator;
 
 import java.util.Scanner;
 
