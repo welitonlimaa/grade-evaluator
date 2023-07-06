@@ -1,13 +1,24 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# Grade Evaluator
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+Este projeto é uma aplicação em Java para auxiliar na gestão de atividades avaliativas e cálculo de notas.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+## Funcionalidades
+
+- Cadastro de atividades avaliativas, como exercícios e projetos.
+- Inserção das notas das atividades cadastradas.
+- Cálculo automático do percentual alcançado.
+- Determinação se o aluno foi aprovado ou reprovado com base no percentual alcançado.
+
+## Como executar
+
+1. Certifique-se de ter o Java JDK instalado em sua máquina.
+2. Clone este repositório: `git clone https://github.com/welitonlimaa/grade-evaluator.git`
+3. Navegue até o diretório raiz do projeto: `cd grade-evaluator`
+4. Compile o projeto: `javac com/trybe/java/regraprogressao/*.java`
+5. Execute o programa: `java com.trybe.java.regraprogressao.Solution`
+
+## Contribuições
+
+Contribuições são bem-vindas! Se você encontrar algum problema, tiver alguma ideia de melhoria ou quiser adicionar novos recursos, sinta-se à vontade para abrir uma nova issue ou enviar um pull request.
+
+
